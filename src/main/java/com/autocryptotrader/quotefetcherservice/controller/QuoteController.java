@@ -6,10 +6,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/quoteFetcherService")
+@RequestMapping("/api/quoteFetcherService")
 public class QuoteController {
     @GetMapping("/getTokenPair")
     public void getTokenPair(@RequestParam String nameTokenPair){
+        // проверить если такой токен в базе данных
+        checkTokenPairInDatabase(nameTokenPair);
+    }
+
+    private void checkTokenPairInDatabase(String nameTokenPair) {
 
     }
 
