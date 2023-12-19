@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  myapp:
+    image: mongo:jammy
+    container_name: mongodb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:jammy
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME:
+      MONGO_INITDB_ROOT_PASSWORD:
+      MONGO_INITDB_DATABASE: QuoteFetcherServiceDatabase  # замените на имя вашей базы данных
